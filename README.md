@@ -1,2 +1,2 @@
-# 深度学习-DIN模型（多目标）
-TODO:DIN + MLT + Sequence features + Embedding，更新中...
+# Deep Neural Networks for YouTube Recommendations
+论文：https://dl.acm.org/doi/abs/10.1145/2959100.2959190
