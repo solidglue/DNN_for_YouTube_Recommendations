@@ -10,6 +10,10 @@ updating...
 
 ## Deep ranking network architecture
 
-![alt text](./res/multi_input_output_ranking.png)
+![alt text](./res/ranking.png)
 
+
+## Multi-Task Model base on YouTuBeDNN
+
+![alt text](./res/multi_input_output_ranking.png)
 
