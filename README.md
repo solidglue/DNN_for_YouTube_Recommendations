@@ -13,7 +13,7 @@ updating...
 ![alt text](./res/ranking.png)
 
 
-## Multi-Task Model base on YouTuBeDNN
+## Multi-Task Model base on YouTuBeDNN model and ml-1m dataset
 
 ![alt text](./res/multi_input_output_ranking.png)
 
