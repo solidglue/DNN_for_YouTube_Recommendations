@@ -10,5 +10,6 @@ updating...
 
 ## Deep ranking network architecture
 
-![alt text](./res/ranking.png)
+![alt text](./res/multi_input_output_ranking.png)
+
 
