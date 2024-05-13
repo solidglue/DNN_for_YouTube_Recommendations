@@ -9,7 +9,7 @@ Easy to join Attention in the future, this project has made some extensions on t
 
 ## refer
 Paper：https://dl.acm.org/doi/abs/10.1145/2959100.2959190  
-DataSet: [ml-1m movie rating](https://grouplens.org/datasets/movielens/1m/)  
+DataSet: [ml-1m(movie rating)](https://grouplens.org/datasets/movielens/1m/)  
 
 ## ranking model in the paper
 Deep ranking network architecture  
