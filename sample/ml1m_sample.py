@@ -6,6 +6,8 @@ import pandas as pd
 #INFO: unit test & EDA
 
 
+#TODO:特征选择valid_features
+
 class Ml1mSample():
 
     def __init__(self) :
