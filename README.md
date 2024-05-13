@@ -1,24 +1,20 @@
 # Deep Neural Networks for YouTube Recommendations
 
+Updating...
+
+## Introduce
+This project only implements the ranking model in the paper for demonstration, and the recall model is the same.
+All core codes are in the ".py" file, and the ".ipynb" scripts are only used for Unit Test and demonstration purposes.
+Easy to join Attention in the future, this project has made some extensions on the ranking model in the paper, such as Multi values Embedding (such as "rated_movies_lastN" feature) and Simple Multi-Task learning.
+
+## refer
 Paper：https://dl.acm.org/doi/abs/10.1145/2959100.2959190
-dataset:ml-1m,movie rating
-说明：所有的核心代码都在.py文件中，.ipynb脚本只作为单元测试和辅助学习使用。
-extend: 多值embedding，序列特征
+DataSet: [ml-1m movie rating](https://grouplens.org/datasets/movielens/1m/)
 
-updating...
-
-## Deep candidate generation model architecture
-
-![alt text](./res/recall.png)
-
-## Deep ranking network architecture
-
+## ranking model in the paper
+Deep ranking network architecture
 ![alt text](./res/ranking.png)
 
-
-## Multi-Task Model base on YouTuBeDNN model and ml-1m dataset
-
+## ranking model in this project
+Multi values Embedding and  Simple Multi-Task learning
 ![alt text](./res/multi_input_output_ranking.png)
-
-
-
