@@ -2,16 +2,13 @@ import sys
 import pandas as pd
 from tensorflow import keras
 from keras import layers
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 class Features:
 
     def rating_sequences(self, data_df, seq_len_):
-
-        
-        # 构造评分序列特征
-        #seq_data_df = data_df.groupby(['user_id'])['item_id'].agg(list).reset_index() #.agg(lambda x: '|'.join(x))  #.agg(list).reset_index() #
-        #seq_data_df.columns = ["user_id","itemid_seq"]
-
+        ## 构造评分序列特征
         #按用户id、时间戳排序
         data_df_sorted = data_df.sort_values(by=['user_id', 'timestamp'], ascending=[True, False])  
   
@@ -57,4 +54,19 @@ class Features:
 
         return onhot_tensor
 
+    def input_pad_sequences(self, input_sequences_tensor):
+        # 示例输入数据  input_texts = ['a|b|c', 'b|c', 'a|b|c|d', 'e|f|g|h|i']  
+        input_sequences_list = input_sequences_tensor.numpy().tolist()
+        input_sequences_list = [s.decode('utf-8') for s in input_sequences_list]
+
+        # 使用Tokenizer将文本转换为序列  
+        tokenizer = Tokenizer(filters='|')  # 使用'|'作为分隔符  
+        tokenizer.fit_on_texts(input_sequences_list)  
+        sequences = tokenizer.texts_to_sequences(input_sequences_list)  
     
+        # 计算最大序列长度  
+        max_sequence_length = max(len(seq) for seq in sequences)  
+        # 使用pad_sequences填充序列到相同长度  
+        padded_sequences = pad_sequences(sequences, maxlen=max_sequence_length, padding='post')  
+
+        return padded_sequences

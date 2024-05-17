@@ -2,15 +2,11 @@
 import tensorflow as tf  
 import numpy as np  
 import pandas as pd
-  
+from feature.feature_processing import Features
+
 class Ml1mTFRecordSample:
 
-
-    def __init__(self):
-        self.output_path = 'd://the-recommender/DNN_for_YouTube_Recommendations/sample/__TFRecord/train.tfrecord'
-        self.batch_size = 16  
-    
-    # 定义一个函数来将图像和标签写入 TFRecord  
+    # 定义一个函数来将样本写入 TFRecord  
     def write_tfrecord(self,sample_x, sample_y, output_path):  
         with tf.io.TFRecordWriter(output_path) as writer:  
             for user_id,item_id,timestamp,title,genres, gender,age,occupation,zip_,itemid_seq,itemid_seq_len,rating   \
@@ -35,7 +31,6 @@ class Ml1mTFRecordSample:
                 
                 # 将 tf.train.Example 序列化为字符串并写入 TFRecord 文件 
                 writer.write(example.SerializeToString())  
-            #print(example)
 
 
     # 定义解析函数，用于从 TFRecord 中提取图像和标签  
@@ -55,27 +50,35 @@ class Ml1mTFRecordSample:
             'rating': tf.io.FixedLenFeature([], tf.int64),         
         }  
         parsed_features = tf.io.parse_single_example(example_proto, features)  
-
-        # 将标签转换为整数  
-        #label = tf.cast(parsed_features['label'], tf.int64)  
-
         feature_columns = ["user_id","item_id","timestamp","title","genres", "gender","age","occupation","zip","itemid_lastN","itemid_lastN_len" ]
         label_clomuns = ["rating"]
-
         x_dict = {key: parsed_features[key] for key in feature_columns if key in parsed_features} 
         y_dict = {key: parsed_features[key] for key in label_clomuns if key in parsed_features} 
 
         return x_dict, y_dict
     
 
-    def tfrecord_sample(self, sample_x = pd.DataFrame(), sample_y = pd.DataFrame(), is_write=False):
+    def tfrecord_sample(self, data_X = pd.DataFrame(), data_y = pd.DataFrame(), is_write=False, parsed_args={}):
+
+        feature_processor = Features()
+        data_df = pd.concat([data_X, data_y],axis=1)
+        data_df_sorted = data_df.sort_values(by=['user_id', 'timestamp'], ascending=[True, False])  
+
+        #数据集里有大量数据是一个用户在同一秒对多个电影评分的数据，只保留一条
+        df_no_duplicates = data_df_sorted.drop_duplicates(subset=['user_id', 'timestamp'],keep='last').reset_index(drop=True) 
+        #构造id序列特征
+        seq_df = feature_processor.rating_sequences(df_no_duplicates, int(parsed_args["seq_len"]))  
+        #样本拼接
+        sample_df =pd.merge(df_no_duplicates, seq_df).fillna(0)
+        sample_y = sample_df[["rating"]]
+        sample_x = sample_df.drop(["rating"],axis=1)
+
         if is_write:
-            self.write_tfrecord(sample_x, sample_y, self.output_path)  #可以从原始数据构造样本，也可以从tfrecord读取样本
+            self.write_tfrecord(sample_x, sample_y, parsed_args["sample_output_file"])  #可以从原始数据构造样本，也可以从tfrecord读取样本
+
         # 加载数据集  
         # 假设我们有一个 TFRecord 文件 'train.tfrecord'  
-        dataset = tf.data.TFRecordDataset(self.output_path)  
+        dataset = tf.data.TFRecordDataset(parsed_args["sample_output_file"])  
         dataset = dataset.map(self.parse_example, num_parallel_calls=tf.data.AUTOTUNE)  
-        #train_dataset = dataset.shuffle(buffer_size=100).batch(self.batch_size).prefetch(tf.data.AUTOTUNE)  
 
         return dataset
-
