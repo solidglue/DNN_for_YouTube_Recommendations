@@ -9,7 +9,7 @@ Paper：https://dl.acm.org/doi/abs/10.1145/2959100.2959190
 DataSet: [ml-1m(movie rating)](https://grouplens.org/datasets/movielens/1m/)  
 
 
-## Model Trainning
+## Model & Model Trainning
 [加载数据(Load Datasets)](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/datasets/datasets_test.ipynb)  
 [构造样本(Create Samples)](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/sample/ml1m_sample_tfrecord_test.ipynb)  
 [模型训练(Modle Trainning)](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)  
@@ -18,11 +18,11 @@ DataSet: [ml-1m(movie rating)](https://grouplens.org/datasets/movielens/1m/)
 [main.py](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/main.py)  
 
 
-## ranking model in the paper
+## Ranking model in the paper
 Deep ranking network architecture  
 ![alt text](./res/ranking.png)  
 
 
-## ranking model in this project
+## Ranking model in this project
 Simple Multi-Task learning  ranking network architecture  
 ![alt text](./res/multi_input_and_output_model.png)  
