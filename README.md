@@ -1,5 +1,5 @@
 # Deep Neural Networks for YouTube Recommendations
-
+以"DNN_for_YouTube_Recommendations"模型和电影评分数据集（ml-1m）为基础，详尽的展示了如何基于TensorFlow2实现推荐系统排序模型。 
 
 ## Introduce
 本项目只实现了论文中的排序模型，召回模型同理。项目核心代码都在".py"文件中，所有".ipynb"中的代码只用作演示和单元测试，独立于业务。项目做了一些扩展，例如不定长多值序列特征的embedding（例如用户评分电影序列），简单多目标学习（例如预测评分分数和评分分类）。  
@@ -33,3 +33,20 @@ Deep ranking network architecture
 ## Ranking model in this project
 Simple Multi-Task learning  ranking network architecture  
 ![alt text](./res/multi_input_and_output_model.png)  
+
+
+## *扩展
+
+1.**推荐系统**  
+王树森推荐系统公开课 - 基于小红书的场景讲解工业界真实的推荐系统。  
+●  [**Recommender_System**](https://github.com/solidglue/Recommender_System) 
+
+2.**推荐系统推理服务**  
+基于Goalng、Docker和微服务思想实现了高并发、高性能和高可用的推荐系统推理微服务，包括多种召回/排序服务，并提供多种接口访问方式（REST、gRPC和Dubbo）等，每日可处理上千万次推理请求。   
+● [**推荐系统推理微服务Golang**](https://github.com/solidglue/Recommender_System_Inference_Services)  
+
+3.**机器学习 Sklearn入门教程**  
+●  [**机器学习Sklearn入门教程**](https://github.com/solidglue/Machine_Learning_Sklearn_Examples)  
+
+4.**深度学习TensorFlow入门教程**  
+●  [**深度学习TensorFlow入门教程**](https://github.com/solidglue/Deep_Learning_TensorFlow2_Examples)  
