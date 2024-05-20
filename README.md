@@ -9,13 +9,20 @@ Paper：https://dl.acm.org/doi/abs/10.1145/2959100.2959190
 DataSet: [ml-1m(movie rating)](https://grouplens.org/datasets/movielens/1m/)  
 
 
+## Notice
+如果通过Github站内超链接打开Jupyter Notebook文件发生错误，可以点击根据 https://nbviewer.org 生成的“备用链接”间接访问对应文件。  
+或者通过以下链接访问整个项目的站外备用链接，注意点击站外备用链接里的非Jupyter Notebook格式文件会跳转回到Github仓库内：  
+●  [**DNN_for_YouTube_Recommendations**](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/tree/main/)  
+
+
 ## Model & Model Trainning
-[加载数据(Load Datasets)](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/datasets/datasets_test.ipynb)  
-[构造样本(Create Samples)](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/sample/ml1m_sample_tfrecord_test.ipynb)  
-[模型训练(Modle Trainning)](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)  
-[保存模型与签名(Save Modles)](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)  
-[模型推理(Modle Inference)](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/infer/infer_test.ipynb)  
-[main.py](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/main.py)  
+[**加载数据(Load Datasets)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/datasets/datasets_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/datasets/datasets_test.ipynb) 
+[**构造样本(Create Samples)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/sample/ml1m_sample_tfrecord_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/sample/ml1m_sample_tfrecord_test.ipynb)  
+[**模型定义(Modle Structure)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/model/YouTuBeDNN_ranking_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/model/YouTuBeDNN_ranking_test.ipynb)  
+[**模型训练(Modle Trainning)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/multi_values_embedding_layer_test.ipynb)  
+[**保存模型与签名(Save Modles)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)       [~~*(备用链接)*~~]()  
+[**模型推理(Modle Inference)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/infer/infer_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/multi_values_embedding_layer_test.ipynb)  
+[**main.py**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/main.py)  
 
 
 ## Ranking model in the paper
