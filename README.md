@@ -19,9 +19,9 @@ DataSet: [ml-1m(movie rating)](https://grouplens.org/datasets/movielens/1m/)
 [**加载数据(Load Datasets)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/datasets/datasets_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/datasets/datasets_test.ipynb)   
 [**构造样本(Create Samples)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/sample/ml1m_sample_tfrecord_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/sample/ml1m_sample_tfrecord_test.ipynb)  
 [**模型定义(Modle Structure)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/model/YouTuBeDNN_ranking_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/model/YouTuBeDNN_ranking_test.ipynb)  
-[**模型训练(Modle Trainning)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/multi_values_embedding_layer_test.ipynb)  
-[**保存模型与签名(Save Modles)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)       [~~*(备用链接)*~~]()  
-[**模型推理(Modle Inference)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/infer/infer_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/multi_values_embedding_layer_test.ipynb)  
+[**模型训练(Modle Trainning)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)  
+[**保存模型与签名(Save Modles)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/trainner/trainner_cpu_test.ipynb)    
+[**模型推理(Modle Inference)**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/infer/infer_test.ipynb)       [~~*(备用链接)*~~](https://nbviewer.org/github/solidglue/DNN_for_YouTube_Recommendations/blob/main/core/infer/infer_test.ipynb)  
 [**main.py**](https://github.com/solidglue/DNN_for_YouTube_Recommendations/blob/main/main.py)  
 
 
