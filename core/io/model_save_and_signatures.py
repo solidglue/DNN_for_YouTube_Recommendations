@@ -15,15 +15,19 @@ class SaveModelSignatures:
         tf.saved_model.save(model, export_path)
   
 
-    def save_model_signatures(self, model, export_path):
+    def save_model_signatures(self, model,  parsed_args, export_path):
+
+        #tags input。先hash，再onehot（keras.layers.CategoryEncoding可指定最大范围）
+        tags_dim = parsed_args["gender_hash_nums"] + parsed_args["age_hash_nums"] + parsed_args["occupation_hash_nums"] + parsed_args["seqlen_hash_nums"] 
+
         # 定义签名函数：预测（分类+回归多分类）  
         @tf.function(input_signature=[  
-            tf.TensorSpec(shape=[None, 1], dtype=tf.float32, name='user_id'),  
-            tf.TensorSpec(shape=[None, 1], dtype=tf.float32, name='movie_id'), 
-            tf.TensorSpec(shape=[None, 5], dtype=tf.float32, name='rated_movies_lastN'),             
-            tf.TensorSpec(shape=[None, 6], dtype=tf.float32, name='genres'),  
-            tf.TensorSpec(shape=[None, 1], dtype=tf.float32, name='zip_id'),  
-            tf.TensorSpec(shape=[None, 310], dtype=tf.float32, name='tags') 
+            tf.TensorSpec(shape=[None, parsed_args["userid_input_dim"]], dtype=tf.float32, name='user_id'),  
+            tf.TensorSpec(shape=[None, parsed_args["movieid_input_dim"]], dtype=tf.float32, name='movie_id'), 
+            tf.TensorSpec(shape=[None, parsed_args["rated_movies_lastN_input_dim"]], dtype=tf.float32, name='rated_movies_lastN'),             
+            tf.TensorSpec(shape=[None, parsed_args["genres_input_dim"]], dtype=tf.float32, name='genres'),  
+            tf.TensorSpec(shape=[None, parsed_args["zip_id_input_dim"]], dtype=tf.float32, name='zip_id'),  
+            tf.TensorSpec(shape=[None, tags_dim], dtype=tf.float32, name='tags') 
             
         ])
 
@@ -33,12 +37,12 @@ class SaveModelSignatures:
 
         # 定义签名函数：提取特征  
         @tf.function(input_signature=[  
-            tf.TensorSpec(shape=[None, 1], dtype=tf.float32, name='user_id'),  
-            tf.TensorSpec(shape=[None, 1], dtype=tf.float32, name='movie_id'), 
-            tf.TensorSpec(shape=[None, 5], dtype=tf.float32, name='rated_movies_lastN'),             
-            tf.TensorSpec(shape=[None, 6], dtype=tf.float32, name='genres'),  
-            tf.TensorSpec(shape=[None, 1], dtype=tf.float32, name='zip_id'),  
-            tf.TensorSpec(shape=[None, 310], dtype=tf.float32, name='tags') 
+            tf.TensorSpec(shape=[None, parsed_args["userid_input_dim"]], dtype=tf.float32, name='user_id'),  
+            tf.TensorSpec(shape=[None, parsed_args["movieid_input_dim"]], dtype=tf.float32, name='movie_id'), 
+            tf.TensorSpec(shape=[None, parsed_args["rated_movies_lastN_input_dim"]], dtype=tf.float32, name='rated_movies_lastN'),             
+            tf.TensorSpec(shape=[None, parsed_args["genres_input_dim"]], dtype=tf.float32, name='genres'),  
+            tf.TensorSpec(shape=[None, parsed_args["zip_id_input_dim"]], dtype=tf.float32, name='zip_id'),  
+            tf.TensorSpec(shape=[None, tags_dim], dtype=tf.float32, name='tags') 
 
         ])        
 
